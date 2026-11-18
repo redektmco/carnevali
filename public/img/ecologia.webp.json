@@ -1,4 +1,4 @@
 {
-  "prompt": "Origem: fotografia real do cliente Grupo Carnevali, Drive, pasta FOTOS (projeto ecologia). Convertida para WebP; recorte para remover marca d'água ou sobreposição quando havia.",
-  "createdAt": "2026-11-17T13:27:22.996Z"
+  "prompt": "Origem: fotografia real do cliente Grupo Carnevali, Drive, pasta FOTOS (projeto ecologia). Convertida para WebP; recorte para remover marca d'água ou sobreposição quando havia. Tratamento em 18/11/2026: redução de ruído, balanço de branco parcial, níveis, contraste local leve (CLAHE), saturação +5% e nitidez leve; sem alterar conteúdo.",
+  "createdAt": "2026-11-18T18:50:00.000Z"
 }

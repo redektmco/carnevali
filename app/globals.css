@@ -515,23 +515,156 @@ a { color: inherit; text-underline-offset: 0.2em; text-decoration-thickness: 1px
 .featured__name { grid-column: 1; font-size: clamp(1.5rem, 2.2vw, 1.9rem); font-weight: 680; letter-spacing: -0.025em; color: var(--navy); line-height: 1.15; }
 .featured__info > p:last-child { grid-column: 2; grid-row: 1 / span 2; color: var(--muted); max-width: 56ch; align-self: end; }
 
+/* Mosaico de obras: 4 colunas, panorâmicas ocupam 2 e alternam de lado a cada linha */
 .projects {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  grid-template-rows: repeat(2, auto);
-  gap: 40px 10px;
+  gap: 36px 10px;
 }
-.project figure { display: flex; flex-direction: column; height: 100%; }
-.project__img { position: relative; overflow: hidden; border-radius: 2px; background: var(--concrete); height: clamp(220px, 22vw, 310px); flex: none; }
+.project--wide { grid-column: span 2; }
+.project__open {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  text-align: left;
+  cursor: zoom-in;
+}
+.project__open:focus-visible { outline-offset: 4px; }
+.project__img { position: relative; display: block; overflow: hidden; border-radius: 2px; background: var(--concrete); height: clamp(200px, 19vw, 270px); }
 .project__img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 700ms var(--ease-out); }
-.project:hover .project__img img { transform: scale(1.04); }
-.project figcaption { display: grid; gap: 2px; padding-top: 14px; font-size: 0.93rem; line-height: 1.4; }
-.project figcaption strong { color: var(--navy); font-weight: 650; font-size: 1rem; }
+.project__open:hover .project__img img { transform: scale(1.04); }
+.project__more {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  padding: 5px 10px;
+  background: rgb(22 31 59 / 0.82);
+  color: var(--white);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  border-radius: 2px;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  transition: background-color 200ms ease;
+}
+.project__open:hover .project__more { background: var(--gold); color: var(--navy-deep); }
+.project__cap { display: grid; gap: 2px; padding-top: 14px; font-size: 0.93rem; line-height: 1.4; }
+.project__cap strong { color: var(--navy); font-weight: 650; font-size: 1rem; }
 .project__place { color: var(--muted); }
 .project__service { color: var(--gold-ink); font-weight: 560; }
-.project:nth-child(1) { grid-column: 1 / span 2; }
-.project:nth-child(3) { grid-column: 4; grid-row: 1 / span 2; }
-.project:nth-child(3) .project__img { height: auto; flex: 1 1 auto; }
+
+/* Caldeiraria: peças com o cliente, como no portfólio */
+.pieces { margin-top: 72px; padding-top: 32px; border-top: 2px solid var(--gold); }
+.pieces__head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 32px; margin-bottom: 24px; }
+.pieces__title { font-size: clamp(1.4rem, 2vw, 1.7rem); font-weight: 680; letter-spacing: -0.025em; color: var(--navy); line-height: 1.15; }
+.pieces__note { color: var(--muted); }
+.pieces__grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px 10px; }
+.piece { display: block; width: 100%; padding: 0; border: 0; background: none; color: inherit; text-align: left; cursor: zoom-in; }
+.piece__img { position: relative; display: block; overflow: hidden; aspect-ratio: 4 / 3; border-radius: 2px; background: var(--concrete); }
+.piece__img img { width: 100%; height: 100%; object-fit: cover; transition: transform 700ms var(--ease-out); }
+.piece:hover .piece__img img { transform: scale(1.04); }
+.piece__cap { display: flex; gap: 10px; align-items: baseline; padding-top: 12px; font-size: 0.92rem; line-height: 1.4; color: var(--ink); }
+.piece__cap .chev { flex: none; width: 8px; height: 11px; fill: var(--gold); transform: translateY(1px); }
+.piece__cap strong { display: block; color: var(--gold-ink); font-weight: 650; }
+
+/* Visualizador de fotos */
+.viewer {
+  width: min(1180px, calc(100vw - 32px));
+  max-width: none;
+  height: min(860px, calc(100dvh - 32px));
+  max-height: none;
+  margin: auto;
+  padding: 0;
+  border: 0;
+  border-radius: 6px;
+  background: var(--navy-deep);
+  color: var(--white);
+  box-shadow: 0 40px 90px rgb(5 9 20 / 0.5);
+  overflow: hidden;
+}
+.viewer::backdrop { background: rgb(8 12 26 / 0.8); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+.viewer[open] { animation: viewer-in 360ms var(--ease-out) both; }
+.viewer[open]::backdrop { animation: fade-in 300ms ease both; }
+.viewer.is-closing { animation: viewer-out 180ms ease-in both; }
+.viewer.is-closing::backdrop { animation: fade-out 180ms ease-in both; }
+@keyframes viewer-in { from { opacity: 0; transform: scale(0.96); } }
+@keyframes viewer-out { to { opacity: 0; transform: scale(0.97); } }
+.viewer__panel {
+  position: relative;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  height: 100%;
+  padding: 22px 28px 20px;
+}
+.viewer__panel::before { content: ""; position: absolute; top: 0; left: 28px; right: 28px; height: 3px; background: var(--gold); }
+.viewer__head { display: flex; justify-content: space-between; gap: 16px; align-items: start; padding-bottom: 16px; }
+.viewer__title { font-size: 1.25rem; font-weight: 680; letter-spacing: -0.02em; }
+.viewer__sub { color: var(--on-navy-muted); font-size: 0.92rem; margin-top: 2px; }
+.viewer__close {
+  display: grid; place-items: center; flex: none; width: 44px; height: 44px; margin: -6px -10px 0 0;
+  border: 0; border-radius: 50%; background: transparent; cursor: pointer; transition: background-color 140ms ease;
+}
+.viewer__close:hover { background: rgb(255 255 255 / 0.1); }
+.viewer__close svg { width: 22px; height: 22px; stroke: var(--white); stroke-width: 1.8; fill: none; stroke-linecap: round; }
+.viewer__stage { position: relative; display: grid; grid-template-rows: minmax(0, 1fr) auto; min-height: 0; }
+.viewer__stage img {
+  width: 100%; height: 100%; min-height: 0; object-fit: contain; border-radius: 2px;
+  animation: fade-in 260ms ease both;
+}
+.viewer__stage figcaption { display: flex; gap: 14px; align-items: baseline; padding-top: 12px; color: var(--on-navy-muted); font-size: 0.9rem; }
+.viewer__count { color: var(--gold); font-weight: 650; font-variant-numeric: tabular-nums; letter-spacing: 0.06em; flex: none; }
+.viewer__nav {
+  position: absolute; top: 50%; display: grid; place-items: center; width: 52px; height: 52px; margin-top: -26px;
+  border: 0; border-radius: 50%; background: rgb(22 31 59 / 0.72); cursor: pointer;
+  backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+  transition: background-color 160ms ease, transform 200ms var(--ease-out);
+}
+.viewer__nav .chev { width: 13px; height: 18px; fill: var(--gold); }
+.viewer__nav--prev { left: 36px; }
+.viewer__nav--prev .chev { transform: scaleX(-1); }
+.viewer__nav--next { right: 36px; }
+.viewer__nav:hover { background: var(--gold); }
+.viewer__nav:hover .chev { fill: var(--navy-deep); }
+.viewer__nav--next:hover { transform: translateX(2px); }
+.viewer__nav--prev:hover { transform: translateX(-2px); }
+.viewer__thumbs { display: flex; gap: 8px; padding-top: 14px; overflow-x: auto; scrollbar-width: thin; }
+.viewer__thumbs button {
+  display: block; width: 76px; height: 54px; padding: 0; border: 0; border-radius: 2px; overflow: hidden;
+  background: none; cursor: pointer; opacity: 0.5; outline: 2px solid transparent; outline-offset: 2px;
+  transition: opacity 160ms ease, outline-color 160ms ease;
+}
+.viewer__thumbs button:hover { opacity: 0.85; }
+.viewer__thumbs button[aria-current="true"] { opacity: 1; outline-color: var(--gold); }
+.viewer__thumbs img { width: 100%; height: 100%; object-fit: cover; }
+
+@media (max-width: 1000px) {
+  .projects { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 10px; }
+  .project__img { height: clamp(170px, 30vw, 260px); }
+  .pieces__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 600px) {
+  .projects { gap: 24px 10px; }
+  .project__img { height: 150px; }
+  .project--wide .project__img { height: 200px; }
+  .project__cap { padding-top: 10px; font-size: 0.82rem; }
+  .project__cap strong { font-size: 0.92rem; }
+  .project__more { right: 6px; bottom: 6px; padding: 4px 7px; font-size: 0.66rem; }
+  .pieces { margin-top: 56px; }
+  .piece__cap { font-size: 0.82rem; gap: 8px; }
+  .viewer { width: 100vw; height: 100dvh; border-radius: 0; }
+  .viewer__panel { padding: 18px 16px 16px; }
+  .viewer__panel::before { left: 16px; right: 16px; }
+  .viewer__nav { width: 44px; height: 44px; margin-top: -22px; }
+  .viewer__nav--prev { left: 8px; }
+  .viewer__nav--next { right: 8px; }
+  .viewer__thumbs button { width: 60px; height: 44px; }
+}
 
 @media (max-width: 900px) {
   .featured__stages { grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; height: 640px; }
@@ -539,21 +672,6 @@ a { color: inherit; text-underline-offset: 0.2em; text-decoration-thickness: 1px
   .featured__info { grid-template-columns: 1fr; }
   .featured__info > p:last-child { grid-column: 1; grid-row: auto; margin-top: 8px; }
 
-  /* Carrossel com rolagem nativa no celular */
-  .projects {
-    display: flex;
-    gap: 12px;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    margin-inline: calc(var(--gutter) * -1);
-    padding-inline: var(--gutter);
-    scroll-padding-inline: var(--gutter);
-    padding-bottom: 8px;
-    scrollbar-width: thin;
-  }
-  .project { flex: 0 0 min(78vw, 340px); scroll-snap-align: start; }
-  .project .project__img,
-  .project:nth-child(3) .project__img { height: auto; aspect-ratio: 4 / 3; flex: none; }
 }
 @media (max-width: 600px) {
   .featured__stages { height: 520px; }
@@ -1058,6 +1176,7 @@ a { color: inherit; text-underline-offset: 0.2em; text-decoration-thickness: 1px
     transition-duration: 1ms !important;
   }
   .area:hover .area__img img,
-  .project:hover .project__img img,
+  .project__open:hover .project__img img,
+  .piece:hover .piece__img img,
   .sector:hover img { transform: none; }
 }

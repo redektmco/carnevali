@@ -1,0 +1,4 @@
+{
+  "prompt": "Origem: fotografia real do cliente Grupo Carnevali, recortada do PDF 'Portfólio Grupo Carnevali' (versão de 18/11/2026). Ampliada 2x com super-resolução EDSR (OpenCV) quando pequena. Tratamento em 18/11/2026: redução de ruído, balanço de branco parcial, níveis, contraste local leve (CLAHE), saturação +5% e nitidez leve; sem alterar conteúdo.",
+  "createdAt": "2026-11-18T18:50:00.000Z"
+}

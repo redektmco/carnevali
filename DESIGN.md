@@ -116,7 +116,7 @@ O azul-marinho domina o hero, os diferenciais, a chamada final e o rodapé. O co
 
 **Características:**
 
-- Fotos reais de obra, sem filtro, em janelas de chevron ou retângulos retos de cantos de 2px.
+- Fotos reais de obra, com tratamento leve de cor, contraste e nitidez (sem filtro de estilo), em janelas de chevron ou retângulos retos de cantos de 2px.
 - Uma única família, Hanken Grotesk, com títulos pesados e compactos e legendas em caixa-alta espaçada (eco do "G R U P O" do logotipo).
 - Réguas douradas de 2px, como a linha do logotipo.
 - O formulário de pré-qualificação tratado como objeto central, em modal e no fim da página.
@@ -136,7 +136,7 @@ Hanken Grotesk Variable, hospedada localmente via @fontsource. Display e headlin
 
 ## Layout
 
-Contêiner de até 1280px, com 56px de margem lateral (32px até 1100px, 20px até 760px). Seções com 112px de respiro (96px e 72px nos breakpoints). Áreas de atuação, FAQ e chamada final usam duas colunas 5/7 com a coluna de título fixa ao rolar. No celular, o portfólio vira carrossel com scroll-snap.
+Contêiner de até 1280px, com 56px de margem lateral (32px até 1100px, 20px até 760px). Seções com 112px de respiro (96px e 72px nos breakpoints). Áreas de atuação, FAQ e chamada final usam duas colunas 5/7 com a coluna de título fixa ao rolar. O portfólio é um mosaico de 4 colunas em que as obras com foto panorâmica ocupam 2 colunas e alternam de lado a cada linha (2 colunas no tablet e no celular), seguido da faixa de caldeiraria (peça e cliente).
 
 ## Elevation & Depth
 
@@ -156,6 +156,8 @@ Profundidade vem da alternância de campos, não de sombras. Sombra só no paine
 - **Serviço pré-selecionado:** caixa com rótulo "Serviço", o nome com chevron dourado e o link "Alterar serviço".
 - **Etapas:** duas etapas marcadas por chevrons; a atual tem o chevron em dourado.
 - **Áreas de atuação:** lista com foto 4:3, título e texto. A linha inteira abre o modal já com o serviço correspondente.
+- **Obras do portfólio:** cartão com foto de capa, nome, local e serviço; selo "+N fotos" quando há mais imagens. O cartão abre o visualizador.
+- **Visualizador de fotos:** `<dialog>` azul-profundo com régua dourada no topo, foto inteira (`contain`), contador dourado, setas em chevron e miniaturas; ← → navegam, Esc fecha.
 - **Antes / Durante / Depois:** três fotos do mesmo projeto, com etiquetas azuis e chevron dourado.
 
 ## Do's and Don'ts

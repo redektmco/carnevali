@@ -3,7 +3,8 @@ import { LeadForm } from "@/components/lead-form";
 import { Chevron, ChevronBand, Logo } from "@/components/marks";
 import { CampaignNotice, ProposalButton } from "@/components/proposal-button";
 import { SiteHeader } from "@/components/site-header";
-import { AREAS, DIFFERENTIALS, FAQ, FEATURED, PROJECTS, SECTORS, STEPS } from "@/lib/content";
+import { ProjectGallery } from "@/components/project-gallery";
+import { AREAS, CALDEIRARIA, DIFFERENTIALS, FAQ, FEATURED, PROJECTS, SECTORS, STEPS } from "@/lib/content";
 
 const PRIVACY_URL = process.env.NEXT_PUBLIC_PRIVACY_URL || "#politica-de-privacidade";
 
@@ -106,8 +107,8 @@ export default function Home() {
                 Projetos que mostram nossa experiência em campo.
               </h2>
               <p className="lede">
-                Conheça alguns dos projetos apresentados no portfólio do Grupo Carnevali e veja como diferentes demandas se
-                transformam em entregas.
+                Conheça as obras do portfólio do Grupo Carnevali e veja como diferentes demandas se transformam em
+                entregas. Abra cada projeto para ver mais fotos.
               </p>
             </div>
 
@@ -134,22 +135,7 @@ export default function Home() {
               </div>
             </article>
 
-            <ul className="projects">
-              {PROJECTS.map((p) => (
-                <li key={p.name} className={`project project--${p.shape}`}>
-                  <figure>
-                    <div className="project__img">
-                      <img src={p.image} alt={p.alt} loading="lazy" style={{ objectPosition: p.position }} />
-                    </div>
-                    <figcaption>
-                      <strong>{p.name}</strong>
-                      {p.place && <span className="project__place">{p.place}</span>}
-                      <span className="project__service">{p.service}</span>
-                    </figcaption>
-                  </figure>
-                </li>
-              ))}
-            </ul>
+            <ProjectGallery projects={PROJECTS} pieces={CALDEIRARIA} />
 
             <div className="section-cta">
               <ProposalButton className="btn btn--navy">Quero apresentar meu projeto</ProposalButton>
