@@ -275,6 +275,11 @@ export default function Home() {
           <p className="site-footer__copy">© {new Date().getFullYear()} Grupo Carnevali</p>
         </div>
       </footer>
+
+      <div className="agency-credit">
+        <p>Desenvolvido pela nossa unidade de performance digital</p>
+        <img src="/brand/v4-oliveira-co-branco.png" alt="V4 Oliveira&Co" width={170} height={46} loading="lazy" />
+      </div>
     </LeadProvider>
   );
 }

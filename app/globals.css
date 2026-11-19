@@ -1159,6 +1159,31 @@ a { color: inherit; text-underline-offset: 0.2em; text-decoration-thickness: 1px
 .site-footer__links a { color: var(--on-navy-muted); text-decoration: underline; min-height: 44px; display: inline-flex; align-items: center; }
 .site-footer__links a:hover { color: var(--white); }
 .site-footer__copy { grid-column: 1 / -1; padding-top: 24px; border-top: 1px solid rgb(255 255 255 / 0.1); font-size: 0.82rem; }
+/* Crédito da agência: faixa preta padrão da V4 Oliveira&Co, abaixo do rodapé */
+.agency-credit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px 60px;
+  padding: 28px 20px;
+  background: #000;
+  border-top: 1px solid #1a1a1a;
+}
+.agency-credit p {
+  font-family: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #8f8f8f;
+  text-align: center;
+  text-wrap: balance;
+}
+.agency-credit img { width: auto; height: 23px; }
+@media (max-width: 600px) {
+  .agency-credit { flex-direction: column; padding: 24px 20px 28px; }
+  .agency-credit p { font-size: 0.64rem; }
+}
+
 @media (max-width: 900px) {
   .site-footer__inner { grid-template-columns: 1fr; }
   .site-footer__links { flex-wrap: wrap; }
