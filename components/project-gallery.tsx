@@ -143,7 +143,7 @@ export function ProjectGallery({ projects, pieces }: { projects: Project[]; piec
           const cover = p.photos[0];
           const more = p.photos.length - 1;
           return (
-            <li key={p.name} className={`project${p.wide ? " project--wide" : ""}`}>
+            <li key={p.name} className={`project${p.wide ? " project--wide" : ""}${p.tall ? " project--tall" : ""}`}>
               <button
                 type="button"
                 className="project__open"

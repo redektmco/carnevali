@@ -67,6 +67,8 @@ export type Project = {
   photos: Photo[];
   /** Ocupa duas colunas no mosaico (fotos panorâmicas). */
   wide?: boolean;
+  /** Ocupa duas linhas no mosaico (fotos verticais: o prédio aparece inteiro). */
+  tall?: boolean;
 };
 
 export const FEATURED = {
@@ -99,7 +101,8 @@ export const FEATURED = {
 // Todas as obras do Portfólio Grupo Carnevali (versão enviada em 18/11/2026), na ordem do PDF,
 // mais Zogaib e Obras em Santos, que vieram do Drive do cliente, e as cinco obras enviadas em 23/11/2026.
 // Fotos sem pasta no Drive foram recortadas do PDF do portfólio e tratadas (cor, nitidez, ampliação).
-// Mosaico de 4 colunas: a soma dos spans (wide = 2) precisa fechar linhas de 4.
+// Mosaico de 4 colunas: a soma dos spans (wide = 2 colunas, tall = 2 linhas) precisa fechar linhas de 4.
+// Depois do By Side: faixa de quatro prédios altos; depois dois altos ao lado de dois largos empilhados.
 export const PROJECTS: Project[] = [
   {
     name: "Escola Rei Pelé",
@@ -193,6 +196,7 @@ export const PROJECTS: Project[] = [
   {
     name: "Edifício Canumã",
     service: "Edifício residencial",
+    tall: true,
     photos: [
       { src: "/img/canuma-1.webp", alt: "Edifício Canumã visto da esquina, com fachada em tijolo aparente e pastilha branca e jardim na entrada", position: "50% 38%" },
       { src: "/img/canuma-2.webp", alt: "Fachada frontal do Edifício Canumã com varandas envidraçadas" },
@@ -201,6 +205,7 @@ export const PROJECTS: Project[] = [
   {
     name: "Edifício Charleston",
     service: "Edifício residencial",
+    tall: true,
     photos: [
       { src: "/img/charleston-1.webp", alt: "Fachada frontal do Edifício Charleston, em tijolo aparente e pastilha clara, com varandas de vidro verde", position: "50% 42%" },
       { src: "/img/charleston-2.webp", alt: "Edifício Charleston visto de lado, com portões de grade diagonal no térreo" },
@@ -210,7 +215,7 @@ export const PROJECTS: Project[] = [
   {
     name: "Edifício Piazza Navona",
     service: "Edifício residencial",
-    wide: true,
+    tall: true,
     photos: [
       { src: "/img/navona-1.webp", alt: "Fachada do Edifício Piazza Navona revestida em pastilha azul, com varandas curvas", position: "50% 32%" },
       { src: "/img/navona-2.webp", alt: "Quina do Edifício Piazza Navona vista de baixo" },
@@ -221,10 +226,10 @@ export const PROJECTS: Project[] = [
   {
     name: "Edifício Porto Seguro",
     service: "Portões, guarda-corpos e portaria em vidro",
-    wide: true,
+    tall: true,
     photos: [
-      { src: "/img/portoseguro-1.webp", alt: "Portões de lâminas metálicas pretas e corrimãos na entrada do Edifício Porto Seguro", position: "50% 58%" },
-      { src: "/img/portoseguro-2.webp", alt: "Acesso do Edifício Porto Seguro com rampa, escada, guarda-corpo e portões" },
+      { src: "/img/portoseguro-2.webp", alt: "Edifício Porto Seguro com o acesso em rampa, escada, guarda-corpo e portões", position: "56% 50%" },
+      { src: "/img/portoseguro-1.webp", alt: "Portões de lâminas metálicas pretas e corrimãos na entrada do Edifício Porto Seguro" },
       { src: "/img/portoseguro-3.webp", alt: "Portaria envidraçada com caixilho preto, vista da calçada" },
       { src: "/img/portoseguro-4.webp", alt: "Porta de vidro da portaria aberta para a escada de entrada" },
       { src: "/img/portoseguro-5.webp", alt: "Fechamento em vidro e corrimão ao longo da calçada do edifício" },
@@ -233,7 +238,7 @@ export const PROJECTS: Project[] = [
   {
     name: "Unafisco",
     service: "Portaria em vidro e alumínio",
-    wide: true,
+    tall: true,
     photos: [
       { src: "/img/unafisco-1.webp", alt: "Entrada da sede da Unafisco com portão em tela, portaria de vidro e escada lateral", position: "50% 55%" },
       { src: "/img/unafisco-2.webp", alt: "Porta de vidro com caixilho de alumínio bronze e o número 290" },
@@ -243,6 +248,7 @@ export const PROJECTS: Project[] = [
   {
     name: "Zogaib",
     service: "Estrutura em concreto armado",
+    tall: true,
     photos: [
       { src: "/img/zogaib.webp", alt: "Escada em concreto recém-concretada, ainda com formas e escoras", position: "50% 60%" },
     ],
@@ -250,6 +256,7 @@ export const PROJECTS: Project[] = [
   {
     name: "Obras em Santos, São Vicente e Itanhaém",
     service: "Construção de edificações",
+    wide: true,
     photos: [
       { src: "/img/santos.webp", alt: "Vista aérea de sobrados geminados concluídos" },
     ],
