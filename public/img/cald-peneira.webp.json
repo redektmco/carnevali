@@ -1,5 +1,5 @@
 {
-  "prompt": "Origem: fotografia real do cliente Grupo Carnevali, recortada do PDF 'Portfólio Grupo Carnevali' (versão de 18/11/2026). Ampliada 2x com super-resolução EDSR (OpenCV) quando pequena. Tratamento em 18/11/2026: redução de ruído, balanço de branco parcial, níveis, contraste local leve (CLAHE), saturação +5% e nitidez leve; sem alterar conteúdo. Upscaling em 26/11/2026: super-resolução Real-ESRGAN x4plus (IA, local) a partir do recorte de origem, saída 2x do arquivo anterior, mesclada 15% com o original; sem alterar conteúdo.",
+  "prompt": "Origem: fotografia do cliente Grupo Carnevali, recortada do PDF “Portfólio Grupo Carnevali” (versão de 18/11/2026). A versão tratada do acervo serviu como referência para uma restauração generativa com ImageGen, com foco em nitidez e redução de artefatos. A geração pode reinterpretar detalhes. Saída convertida para WebP.",
   "createdAt": "2026-11-18T18:50:00.000Z",
-  "updatedAt": "2026-11-26T18:00:00.000Z"
+  "updatedAt": "2026-11-26T19:57:56.000Z"
 }
