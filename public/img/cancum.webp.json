@@ -1,4 +1,4 @@
 {
-  "prompt": "Origem: fotografia real do cliente Grupo Carnevali, recortada do PDF 'Portfólio Grupo Carnevali' (versão de 18/11/2026). Ampliada 2x com super-resolução EDSR (OpenCV) quando pequena. Tratamento em 18/11/2026: redução de ruído, balanço de branco parcial, níveis, contraste local leve (CLAHE), saturação +5% e nitidez leve; sem alterar conteúdo.",
-  "createdAt": "2026-11-18T18:50:00.000Z"
+  "prompt": "Origem: fotografia real do cliente Grupo Carnevali, recortada do PDF 'Portfólio Grupo Carnevali' (versão de 18/11/2026); não há arquivo original no Drive. Refeita em 26/11/2026 a partir do recorte: volta à resolução de origem, ampliação 4x por super-resolução Real-ESRGAN x4plus (reconstrói bordas e detalhes finos por IA; geometria e conteúdo do prédio mantidos), níveis e nitidez leves, sem CLAHE. Substituir pela foto original quando o cliente enviar.",
+  "createdAt": "2026-11-26T12:30:00.000Z"
 }

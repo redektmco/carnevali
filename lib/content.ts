@@ -97,8 +97,9 @@ export const FEATURED = {
 };
 
 // Todas as obras do Portfólio Grupo Carnevali (versão enviada em 18/11/2026), na ordem do PDF,
-// mais Zogaib e Obras em Santos, que vieram do Drive do cliente.
+// mais Zogaib e Obras em Santos, que vieram do Drive do cliente, e as cinco obras enviadas em 23/11/2026.
 // Fotos sem pasta no Drive foram recortadas do PDF do portfólio e tratadas (cor, nitidez, ampliação).
+// Mosaico de 4 colunas: a soma dos spans (wide = 2) precisa fechar linhas de 4.
 export const PROJECTS: Project[] = [
   {
     name: "Escola Rei Pelé",
@@ -185,6 +186,58 @@ export const PROJECTS: Project[] = [
     service: "Edifício residencial",
     photos: [
       { src: "/img/byside.webp", alt: "Edifício residencial visto de baixo, contra o céu", position: "50% 30%" },
+    ],
+  },
+  // Obras enviadas pelo cliente em 23/11/2026 (pastas no Drive). Serviço descrito pelo que
+  // aparece nas fotos; a validar com o Grupo Carnevali.
+  {
+    name: "Edifício Canumã",
+    service: "Edifício residencial",
+    photos: [
+      { src: "/img/canuma-1.webp", alt: "Edifício Canumã visto da esquina, com fachada em tijolo aparente e pastilha branca e jardim na entrada", position: "50% 38%" },
+      { src: "/img/canuma-2.webp", alt: "Fachada frontal do Edifício Canumã com varandas envidraçadas" },
+    ],
+  },
+  {
+    name: "Edifício Charleston",
+    service: "Edifício residencial",
+    photos: [
+      { src: "/img/charleston-1.webp", alt: "Fachada frontal do Edifício Charleston, em tijolo aparente e pastilha clara, com varandas de vidro verde", position: "50% 42%" },
+      { src: "/img/charleston-2.webp", alt: "Edifício Charleston visto de lado, com portões de grade diagonal no térreo" },
+      { src: "/img/charleston-3.webp", alt: "Edifício Charleston visto de baixo, contra o céu azul" },
+    ],
+  },
+  {
+    name: "Edifício Piazza Navona",
+    service: "Edifício residencial",
+    wide: true,
+    photos: [
+      { src: "/img/navona-1.webp", alt: "Fachada do Edifício Piazza Navona revestida em pastilha azul, com varandas curvas", position: "50% 32%" },
+      { src: "/img/navona-2.webp", alt: "Quina do Edifício Piazza Navona vista de baixo" },
+      { src: "/img/navona-3.webp", alt: "Edifício Piazza Navona com árvore na calçada em frente" },
+      { src: "/img/navona-4.webp", alt: "Edifício Piazza Navona em contraluz, com o sol atrás da árvore" },
+    ],
+  },
+  {
+    name: "Edifício Porto Seguro",
+    service: "Portões, guarda-corpos e portaria em vidro",
+    wide: true,
+    photos: [
+      { src: "/img/portoseguro-1.webp", alt: "Portões de lâminas metálicas pretas e corrimãos na entrada do Edifício Porto Seguro", position: "50% 58%" },
+      { src: "/img/portoseguro-2.webp", alt: "Acesso do Edifício Porto Seguro com rampa, escada, guarda-corpo e portões" },
+      { src: "/img/portoseguro-3.webp", alt: "Portaria envidraçada com caixilho preto, vista da calçada" },
+      { src: "/img/portoseguro-4.webp", alt: "Porta de vidro da portaria aberta para a escada de entrada" },
+      { src: "/img/portoseguro-5.webp", alt: "Fechamento em vidro e corrimão ao longo da calçada do edifício" },
+    ],
+  },
+  {
+    name: "Unafisco",
+    service: "Portaria em vidro e alumínio",
+    wide: true,
+    photos: [
+      { src: "/img/unafisco-1.webp", alt: "Entrada da sede da Unafisco com portão em tela, portaria de vidro e escada lateral", position: "50% 55%" },
+      { src: "/img/unafisco-2.webp", alt: "Porta de vidro com caixilho de alumínio bronze e o número 290" },
+      { src: "/img/unafisco-3.webp", alt: "Fechamento em vidro da portaria refletindo a rua" },
     ],
   },
   {
